@@ -1,0 +1,57 @@
+﻿@model AllFunctionalityNetCore.Models.ViewModel.LoginSignUpViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="container">
+    <div class="row mt-lg-5">
+        <div class="col-6 offset-3 border border-primary rounded  pl-5 pr-5 pb-5">
+            <div class="text-center">
+                <a class="text-light btn btn-primary font-weight-bold" asp-action="SignUp" asp-controller="Account">Sign Up</a>
+            </div>
+            <h3 class="text-danger text-center">@TempData["successmessage"]</h3>
+            <form method="post" action="Login">
+                <div class="form-group">
+                    <label asp-for="UserName"></label>
+                    <input type="text" asp-for="UserName" placeholder="Enter UserName" class="form-control" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input type="password" asp-for="Password" placeholder="Enter Password" class="form-control" autocomplete="off" />
+                    <i id="open" class="fa fa-eye float-right" style="margin:-25px; margin-right:6px; cursor:pointer" ></i>
+                    <i id="close" class="fa fa-eye-slash float-right" style="margin:-25px; margin-right:6px; cursor:pointer;display:none"></i>
+
+                </div>
+                <div class="form-group">                   
+                    <input type="checkbox" asp-for="IsRemember" />
+                    <label asp-for="IsRemember"></label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-block btn-primary mb-2 float-right" value="Log In" />
+                </div>
+                <div class="text-center">
+                    <a class="text-primary" asp-action="ForgetUserName">ForgetUserName?</a>
+                    <a class="text-primary" asp-action="ForgetPassword">ForgetPassword?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#open").click(function () {
+            $("#open").hide();
+            $("#close").show();
+            $("#Password").attr("type", "text");
+        });
+        $("#close").click(function () {
+            $("#close").hide();
+            $("#open").show();
+            $("#Password").attr("type", "password");
+        });
+    });
+</script>
+
+

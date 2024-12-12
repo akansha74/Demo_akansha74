@@ -1,0 +1,47 @@
+﻿@model AllFunctionalityNetCore.Models.ViewModel.EmployeeViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-primary">Add Employee</h1>
+                </div>
+            </div>
+            <h3 class="text-danger text-center">@TempData["error"]</h3>
+            <form action="Create" method="post">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                   
+                    <input type="text" asp-for="Name" class="form-control" placeholder="Enter Name" autocomplete="off" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City">City</label>
+                    <input class="form-control" asp-for="City" type="text" placeholder="Enter City" autocomplete="off" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div> 
+                <div class="form-group">
+                    <label asp-for="State">State</label>
+                    <input class="form-control" type="text" asp-for="State" placeholder="Enter State" autocomplete="off" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Salary">Salary</label>
+                    <input class="form-control" type="text" asp-for="Salary" placeholder="Enter Salary" autocomplete="off" />
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary float-right" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
